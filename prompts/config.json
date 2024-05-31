@@ -1,0 +1,4 @@
+{
+    "default_prompt": "prompt1.txt",
+    "additional_prompts": ["prompt2.txt"]
+}

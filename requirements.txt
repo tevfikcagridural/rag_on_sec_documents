@@ -1,0 +1,47 @@
+## Utils
+ipykernel
+Iprogress
+tqdm
+python-dotenv
+pytest
+
+## Huggingface
+transformers
+sentence-transformers
+datasets
+
+## LlamaIndex
+llama-index
+# llama-index-embeddings-openai
+# llama-index-llms-openai
+# llama-index-embeddings-huggingface
+# llama-index-llms-huggingface
+# llama-index-llms-ollama
+
+## LangChain
+langchain
+langchain-community
+# langchain-experimental
+# langchain-openai
+
+## Sytem Evaluation
+trulens-eval
+
+# Cloud Services
+# openai
+# google-cloud-aiplatform
+# boto3
+
+## Data Load&Read
+pypdf
+beautifulsoup4
+requests
+
+
+## DS & DA & DL
+numpy
+scipy
+pandas
+matplotlib
+# torch # if using/developing PyTorch models
+# tensorflow # if using/developing TensorFlow models
