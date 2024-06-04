@@ -21,6 +21,7 @@ llama-index
 ## LangChain
 langchain
 langchain-community
+langsmith
 # langchain-experimental
 # langchain-openai
 
@@ -43,5 +44,6 @@ numpy
 scipy
 pandas
 matplotlib
+scikit-learn
 # torch # if using/developing PyTorch models
 # tensorflow # if using/developing TensorFlow models

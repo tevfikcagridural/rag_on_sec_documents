@@ -1,5 +1,5 @@
 import streamlit as st
-from src.services.rag_service import retrieve_and_generate
+from src.services.ingestion_service import retrieve_and_generate
 
 def main():
     st.title("RAG System")
