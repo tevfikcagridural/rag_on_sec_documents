@@ -22,8 +22,21 @@ llama-index
 langchain
 langchain-community
 langsmith
-# langchain-experimental
+langchain-experimental
 # langchain-openai
+
+## unstructured
+
+# ## Unstructured Open Local
+# unstructured-client
+# pdfminer.six
+# pillow-heif
+# opencv-python
+# pdf2image
+# unstructured-inference
+# pytesseract
+# unstructured.pytesseract
+# # brew install poppler # Expects to have poppler installed on the machine
 
 ## Sytem Evaluation
 trulens-eval
@@ -33,8 +46,10 @@ trulens-eval
 # google-cloud-aiplatform
 # boto3
 
-## Data Load&Read
+## Data Load & PDF Parse
 pypdf
+pymupdf
+pymupdf4llm
 beautifulsoup4
 requests
 
