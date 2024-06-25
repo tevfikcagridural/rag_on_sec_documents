@@ -54,11 +54,15 @@ beautifulsoup4
 requests
 
 
-## DS & DA & DL
+## DS & NLP
 numpy
 scipy
 pandas
 matplotlib
+seaborn
+plotly
 scikit-learn
+spacy
+pacmap
 # torch # if using/developing PyTorch models
 # tensorflow # if using/developing TensorFlow models
