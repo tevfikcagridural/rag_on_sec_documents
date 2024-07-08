@@ -1,5 +1,5 @@
 .env
 data/
-.streamlit
-.vscode
-streamlit_temp
+.streamlit/
+.vscode/
+streamlit_temp/
