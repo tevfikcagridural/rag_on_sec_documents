@@ -3,6 +3,6 @@
 data/
 .streamlit/
 .vscode/*
-src/streamlit_tmp/
-.vscode/settings.json
-.vscode/launch.json
+streamlit_tmp/
+src/services/__pycache__
+src/__pycache__
