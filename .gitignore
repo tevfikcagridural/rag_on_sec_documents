@@ -3,5 +3,6 @@
 data/
 .streamlit/
 .vscode/*
-streamlit_temp/
+src/streamlit_tmp/
 .vscode/settings.json
+.vscode/launch.json
