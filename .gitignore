@@ -1,5 +1,7 @@
 .env
+.DS_Store
 data/
 .streamlit/
-.vscode/
+.vscode/*
 streamlit_temp/
+.vscode/settings.json
