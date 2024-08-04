@@ -33,6 +33,7 @@ st.markdown("""
         - **Chunking Strategy:** [MarkdownElementNodeParser](https://docs.llamaindex.ai/en/stable/api_reference/node_parsers/markdown_element/?h=markdownelemen#llama_index.core.node_parser.MarkdownElementNodeParser)^[1](https://github.com/run-llama/llama_index/discussions/13412)
         - **Total pages of docs:** 1364
         - **Report Period:** 2022Q3 - 2024Q1
+        - **Reported Compines:** Apple, Amazon, Intel, Microsoft, Nvidia
         - **Vector Length:** 1024
         - **Similarity Metric:** Cosine
         - **Prompt Management:** LangchainHub
