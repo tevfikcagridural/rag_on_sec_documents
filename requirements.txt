@@ -1,68 +1,28 @@
-## Utils
-ipykernel
-Iprogress
-tqdm
-python-dotenv
-pytest
+## GUI
+streamlit==1.36.0
 
-## Huggingface
-transformers
-sentence-transformers
-datasets
+## DB Clients
+qdrant_client==1.10.1
 
 ## LlamaIndex
-llama-index
-# llama-index-embeddings-openai
-# llama-index-llms-openai
-# llama-index-embeddings-huggingface
-# llama-index-llms-huggingface
-# llama-index-llms-ollama
+llama-index==0.10.52
+llama-parse==0.4.4
+llama-index-readers-file==0.1.27
+llama-index-embeddings-openai==0.1.10
+llama-index-llms-openai==0.1.21
+llama-index-llms-langchain==0.1.4
+llama-index-postprocessor-cohere-rerank==0.1.7
+llama-index-callbacks-langfuse==0.1.4
+llama-index-vector-stores-qdrant==0.2.14
+llama-index-storage-docstore-mongodb==0.1.3
 
 ## LangChain
-langchain
-langchain-community
-langsmith
-langchain-experimental
-# langchain-openai
+langchain==0.1.20
+langchainhub==0.1.20
 
-## unstructured
+## Observability
+langfuse==2.36.2
 
-# ## Unstructured Open Local
-# unstructured-client
-# pdfminer.six
-# pillow-heif
-# opencv-python
-# pdf2image
-# unstructured-inference
-# pytesseract
-# unstructured.pytesseract
-# # brew install poppler # Expects to have poppler installed on the machine
-
-## Sytem Evaluation
-trulens-eval
-
-# Cloud Services
-# openai
-# google-cloud-aiplatform
-# boto3
-
-## Data Load & PDF Parse
-pypdf
-pymupdf
-pymupdf4llm
-beautifulsoup4
-requests
-
-
-## DS & NLP
-numpy
-scipy
-pandas
-matplotlib
-seaborn
-plotly
-scikit-learn
-spacy
-pacmap
-# torch # if using/developing PyTorch models
-# tensorflow # if using/developing TensorFlow models
+## Cloud Services
+google-cloud-secret-manager==2.20.0
+google-crc32c==1.5.0

@@ -1,104 +1,58 @@
-# Retrieval-Augmented Generation (RAG) System System Structure
-Inspired from [cookie-cutter-data-science](https://cookiecutter-data-science.drivendata.org).
+# Small Scale Production-grade RAG
+        
+The system can answer complex queries such as combining information from multi pages or even multiple documents. Data, QnA pairs are originated from [Docugami Knowledge Graph Retrieval Augmented Generation Datasets](https://github.com/docugami/KG-RAG-datasets/)
 
-This work suggests an overview of how to structure a directory for a Retrieval-Augmented Generation (RAG) system. The proposed structure is designed to organize the various components and workflows typically involved in developing and maintaining them.
+## Documents Information
+The SEC Form 10-Q is a quarterly report required by the Securities and Exchange Commission (SEC) that provides unaudited financial statements and other information about a company's operations and financial condition. While there is a basic formatting standard, different companies' forms can vary in style and explanation. Most importantly, these forms contain complex tables that store valuable information, making accurate extraction of this information crucial.
 
-## Project Structure
+This app contains these forms for the following companies; Apple, Intel, Microsoft, Nvidia from 2022 Q3 to 2024 Q1.
 
-```sh
-rag-app/
-├── data/                           # Only some samples. **It is recommended to separate data stores/databases from codebase**
-│   ├── raw/                        # Raw, unprocessed data files
-│   ├── processed/                  # Data files after preprocessing
-│   └── external/                   # External data sources
-├── models/                         # For using local models 
-│   ├── embeddings/                 # Pretrained/fine-tuned embedding model(s)
-│   └── llm/                        # Pretrained/fine-tuned language model(s)
-├── prompts/            
-│   ├── prompt1.txt                 # Sample prompt file
-│   ├── prompt2.txt                 # Another sample prompt file
-│   └── config.json                 # Configuration for prompts
-├── reports/
-│   ├── development_report.md       # Reports on experiments and/or analyses
-│   └── figures/                    # Figures for reports
-├── src/                            # Main source code for the application.
-│   ├── __init__.py
-│   ├── data/
-│   │   ├── __init__.py
-│   │   └── data_preparation.py     # Data preparation scripts
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── embedding_models.py     # Embedding model(s) handling
-│   │   └── llm_models.py           # Language model(s) handling
-│   ├── services/
-│   │   ├── __init__.py
-│   │   └── rag_service.py          # Core service for RAG system
-│   │   └── monitoring_service.py   # Monitoring service of the RAG system
-│   └── app/                        # Frontend application scripts (Streamlit, gradio, etc.)
-│       ├── __init__.py
-│       └── main.py                 # Main application entry point
-├── tests/
-│   ├── __init__.py
-│   ├── test_data_preparation.py    # Unit tests for data preparation
-│   ├── test_embedding_model.py     # Unit tests for embedding model
-│   ├── test_llm_model.py           # Unit tests for language model
-│   └── test_rag_service.py         # Unit tests for RAG service
-├── notebooks/
-│   └── data_exploration.ipynb      # Jupyter notebook for data exploration and analysis
-│   ├── experiments.ipynb           # Jupyter notebook for experiments on different strategies
-├── docker/                         # For containerized deployment 
-│   ├── Dockerfile                  # Dockerfile for building the image
-│   └── docker-compose.yml          # Docker Compose file for multi-container setups
-├── .env                            # Environment variables
-├── .gitignore                      # Git ignore file
-├── README.md                       # Project README file
-├── requirements.txt                # Python dependencies
-```
+## Tech Stack
+- **Data Framework:** [LlamaIndex](https://www.llamaindex.ai)
+- **PDF Parsing:** [LlamaParse](https://cloud.llamaindex.ai/)
+- **Vector DB:** [Pinecone](https://www.pinecone.io)
+- **LLM:** [OpenAI GPT-3.5-Turbo](https://platform.openai.com/docs/models/gpt-3-5-turbo)
+- **Embedding Model:** [OpenAI Text Embedding 3 Large](https://platform.openai.com/docs/models/embeddings)
+- **Reranking:** [Cohere](https://cohere.com)
+- **Observation:** [Langfuse](https://langfuse.com)
+- **Containerization:** [Docker](https://www.docker.com)
+- **Cloud Platform:** [Google Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run)
+- **GUI Framework:** [Streamlit](https://streamlit.io)
 
-## Getting Started
+## Other Technical Details
+- **Total pages of docs:** 1364
+- **Vector Length:** 1024
+- **Similarity Metric:** Cosine
+- **Prompt Management:** LangchainHub
+- **Query Rephrasing:** Dynamic metadata retrieval 
+- **Node Postprocessors:**
+    - [SimilarityPostprocessor](https://docs.llamaindex.ai/en/stable/module_guides/querying/node_postprocessors/node_postprocessors/#similaritypostprocessor), 
+    - [LongContextReorder](https://docs.llamaindex.ai/en/stable/module_guides/querying/node_postprocessors/node_postprocessors/#longcontextreorder)
 
-### Prerequisites
-- Python 3.8+
-- Docker (for containerized deployment)
+## Cost Breakdown
+- **Ingestion of all documents**
+    - OpenAI Embedding: 0,14$
+- **Inference**:
+    - Open AI: *TO BE ADDED*
+    - GCloud: *TO BE ADDED*
 
-### Installation
-#### 1. Clone the repository:
-
-```sh
-git clone https://github.com/tevfikcagridural/rag_base.git
-cd rag_base
-```
-
-#### 2. Set up a virtual environment:
-
-```sh
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-```
-
-#### 3. Install the dependencies:
-
-```sh
-pip install -r requirements.txt
-```
-
-### Configuration
-- **Environment Variables:** Copy the .env.example to .env and update the variables as needed.
-- **Prompt Configuration:** Update the prompts/config.json with the necessary prompt configurations.
-
-### Running the Application
-#### 1. Local Deployment:
-
-```sh
-python src/app/main.py
-```
-
-#### 2. Docker Deployment:
-```sh
-docker-compose up --build
-```
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-Contact c.dural@gmail.com
+## Sample Questions
+|Question Type|Question|Source Docs|
+|-----|-----|-----|
+|Multi-Doc|How has Apple's total net sales changed over time?|2022-Q3-AAPL, 2023-Q1-AAPL, 2023-Q2-AAPL, 2023-Q3-AAPL 2024-Q1-APPL|
+|Single-Doc|How does Microsoft's revenue distribution across its various business segments in the latest 10-Q compare to the cost of sales for those segments?|2023-Q3-MSFT|
+    
+## Further Improvements & Known Issues
+- Fast API integration
+- Concurrency and Parallelization
+- Caching (both for ingestion and inference)
+- Document management
+- Tool usage (e.g Pulling trading symbol)
+- Image extraction & multi-modality
+- Resource citing
+- Hybrid datastoring 
+- Unit testing
+- Guardrailing to avoid any halucinations
+- Robust tool usage for better metadata filtering
+- Table extraction improvement
+- Clutter clening
