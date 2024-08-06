@@ -12,7 +12,7 @@ LANGFUSE_SECRET_KEY = get_secret('LANGFUSE_SECRET_KEY')
 LLAMA_CLOUD_API_KEY = get_secret('LLAMA_CLOUD_API_KEY')
 MONGO_DB_URI        = get_secret('MONGO_DB_URI')
 
-LLM_MODEL       = 'gpt-3.5-turbo'
+LLM_MODEL       = 'gpt-4o-mini' # Refer to: https://platform.openai.com/docs/models/gpt-3-5-turbo
 LLM_TEMPERATURE = 0.1
 
 EMBEDDING_MODEL         = 'text-embedding-3-large' 

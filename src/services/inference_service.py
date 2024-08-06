@@ -97,14 +97,15 @@ def get_chat_engine() -> CondenseQuestionChatEngine:
     def format_additional_instrs(**kwargs: Any) -> str:
         # Resource: https://docs.llamaindex.ai/en/stable/examples/vector_stores/pinecone_auto_retriever/?h=format_additional_instrs#2b-implement-dynamic-metadata-retrieval
         """Format examples into a string."""
-        metadata_retriever = vector_index.as_retriever(similarity_top_k=2)
+        metadata_retriever = vector_index.as_retriever(similarity_top_k=5)
         nodes = metadata_retriever.retrieve(kwargs["query_str"])
         context_str = (
-            "Here is the metadata of relevant entries from the database collection. "
-            "This should help you infer the right filters: \n"
+            "If the query doesn't expilicitly mention about a specific filter return [] for the filter value."
+            # "Here is the metadata of relevant entries from the database collection. "
+            # "This should help you infer the right filters: \n"
         )
-        for node in nodes:
-            context_str += str(node.node.metadata) + "\n"
+        # for node in nodes:
+        #     context_str += str(node.node.metadata) + "\n"
         return context_str
     
     # Get prompts from langchain hub
@@ -113,7 +114,7 @@ def get_chat_engine() -> CondenseQuestionChatEngine:
         function_mappings={'additional_instructions': format_additional_instrs}
     )
     lc_prompt_tmpl_rag = LangchainPromptTemplate(
-        template=hub.pull("tcd/rag-prompt"),
+        template=hub.pull("tcd/rag-prompt")
     )
 
     # Set prompt for metadata fitering
@@ -146,3 +147,6 @@ def get_chat_engine() -> CondenseQuestionChatEngine:
     langfuse_callback_handler.flush()
     
     return chat_engine
+
+if __name__ == '__main__':
+    engine = get_chat_engine()

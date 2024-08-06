@@ -21,7 +21,7 @@ st.markdown("""
         - **Data Framework:** [LlamaIndex](https://www.llamaindex.ai)
         - **PDF Parsing:** [LlamaParse](https://cloud.llamaindex.ai/)
         - **Vector DB:** [Pinecone](https://www.pinecone.io)
-        - **LLM:** [OpenAI GPT-3.5-Turbo](https://platform.openai.com/docs/models/gpt-3-5-turbo)
+        - **LLM:** [OpenAI GPT-4o-mini](https://platform.openai.com/docs/models/gpt-4o-mini)
         - **Embedding Model:** [OpenAI Text Embedding 3 Large](https://platform.openai.com/docs/models/embeddings)
         - **Reranking:** [Cohere](https://cohere.com)
         - **Observation:** [Langfuse](https://langfuse.com)
@@ -41,6 +41,10 @@ st.markdown("""
         - **Node Postprocessors:**
             - [ChoereRerank](https://docs.llamaindex.ai/en/stable/module_guides/querying/node_postprocessors/node_postprocessors/?h=cohererera#coherererank)
             - [LongContextReorder](https://docs.llamaindex.ai/en/stable/module_guides/querying/node_postprocessors/node_postprocessors/#longcontextreorder)
+        
+        ## Ingestion Cost
+        - **Embedding:** $0.16
+        - **LLM:** $1.83
         
         ## Sample Questions
         |Question Type|Question|Source Docs|
