@@ -101,11 +101,8 @@ def get_chat_engine() -> CondenseQuestionChatEngine:
         nodes = metadata_retriever.retrieve(kwargs["query_str"])
         context_str = (
             "If the query doesn't expilicitly mention about a specific filter return [] for the filter value."
-            # "Here is the metadata of relevant entries from the database collection. "
-            # "This should help you infer the right filters: \n"
+            "The user probably won't mention the trading symbol expilicitly. Instead you should infer from the name of the company."
         )
-        # for node in nodes:
-        #     context_str += str(node.node.metadata) + "\n"
         return context_str
     
     # Get prompts from langchain hub
