@@ -97,8 +97,6 @@ def get_chat_engine() -> CondenseQuestionChatEngine:
     def format_additional_instrs(**kwargs: Any) -> str:
         # Resource: https://docs.llamaindex.ai/en/stable/examples/vector_stores/pinecone_auto_retriever/?h=format_additional_instrs#2b-implement-dynamic-metadata-retrieval
         """Format examples into a string."""
-        metadata_retriever = vector_index.as_retriever(similarity_top_k=5)
-        nodes = metadata_retriever.retrieve(kwargs["query_str"])
         context_str = (
             "If the query doesn't expilicitly mention about a specific filter return [] for the filter value."
             "The user probably won't mention the trading symbol expilicitly. Instead you should infer from the name of the company."

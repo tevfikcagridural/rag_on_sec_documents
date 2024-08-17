@@ -1,6 +1,9 @@
 .env
 .DS_Store
-data/
+data/raw
+data/evaluation
+data/interim
+data/external
 .vscode/
 streamlit_tmp/
 src/__pycache__
