@@ -12,6 +12,7 @@ RUN pip install --upgrade --no-cache-dir --force-reinstall -r requirements.txt
 
 # Copy the current directory contents into the container at /src
 COPY /src /src
+COPY data/processed src/data/processed
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
