@@ -1,8 +1,10 @@
 ## GUI
 streamlit==1.36.0
 
-## DB Client
+## DB Clients
 qdrant_client==1.10.1
+pymongo==4.8.0
+motor==3.5.0
 
 ## LlamaIndex
 llama-index-core==0.10.61
